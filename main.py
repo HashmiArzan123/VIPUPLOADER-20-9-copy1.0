@@ -35,13 +35,14 @@ photo = "photo.jpg"
 credit ="😎𝖘:)™~" 
 OWNER = int(os.environ.get("OWNER", 5892781710)
 try: 
-    ADMINS=[] 
-    for x in (os.environ.get("ADMINS", "5892781710 5892781710").split()):  
-        ADMINS.append(int(x)) 
+    ADMINS = []  # Initialize an empty list
+    for x in os.environ.get("ADMINS", "5892781710 5892781710").split():  
+        ADMINS.append(int(x))  # Convert each admin ID to an integer and add to ADMINS
 except ValueError: 
-        raise Exception("Your Admins list does not contain valid integers.") 
-ADMINS.append(OWNER)
+    raise Exception("Your Admins list does not contain valid integers.") 
 
+# Ensure 'OWNER' is defined before this line
+ADMINS.append(OWNER)
 bot = Client("bot",    
    bot_token="7528821041:AAFooEFPddzXehfhjqc0GkXDpieA69U3SXw",    
    api_id= 4942197,    
